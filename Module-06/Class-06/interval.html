@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        // ctrl + d;    kono word a coursor rakhe ctrl+d key chaple oi worder sathe multi cursor add hoia jabe. Tokhon sobaik aksathe change kora jai.
+
+        console.log(1)
+        console.log(2)
+
+        // setTimeout(function, milisecond); setTimeout er 2nd perameter optional. time na dilaw all kaj complete hoia tahn setTimeout function call hobe. ai function aka akai call hobe. sobar last.
+        setTimeout(() => {
+            console.log(3)
+        }, 2000)
+
+        console.log(4)
+        console.log(5)
+        console.log(6)
+
+
+        // setInerval(function, mileSecond); same setTimeout er motoi. But setTimeout 1 bar nija nija call hoi. ar setInterval() perameter a dewa time porpor call hotei thake.
+
+        // aikhane setInterval akta id return kore automatically. return kora id k case korar jonno, setInterval function k akta variable er moddhe rakha hoi. oi variable a return value store thake. Akhon kono condition dia clearInterval();ai method er moddhe setInterval er return kora value ba setInterval jei function er moddhe store ase, oi variable ta dita hobe. tahole setInterval er exicution stop hobe.
+
+        let num = 0;
+        const clockId = setInterval(() => {
+            num++;
+
+            if (num > 6) {
+                clearInterval(clockId); // consdition dia clearInterval method k call kora hoiase. perameter a setInterval er return kora value clockId variabler moddhe store kore take bosano hoiase.
+            }
+
+            console.log(num)
+        }, 2000);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event loop</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        // Jokhon jake call kora hoiase, take exicute kore than oi function er nicher kaj korisa.
+        function a() {
+            console.log('a');
+            b();
+            console.log("aa")
+        }
+        function b() {
+            console.log('b');
+            d();
+            console.log("bb")
+        }
+        function c() {
+            console.log('c');
+            e();
+            console.log("cc")
+        }
+        function d() {
+            console.log('d');
+            c();
+            console.log("dd")
+        }
+        function e() {
+            console.log('e');
+            console.log("ee")
+        }
+
+        // aikhane fetch er age setTimeout() function k call koresi. But oi somoi er moddhe fetch data load hoia asle fetch age bosbe otherwise setTimeout function call hobe.
+        setTimeout( ()=>{
+            console.log("ami set Time out")
+        }, 2000);
+
+        // aikhane a() function k call korar agei fetch k call koresi.so fetch age asar kotha. kInto fetch pore asbe. karon fetch akta asyncronus function. ja load hote time lage,, onnanno kaj hote thake than load hoia fetch call hobe.
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => console.log(json))
+
+        a();
+    </script>
+</body>
+
+</html>

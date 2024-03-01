@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p id="para"></p>
+        <button onclick="jockesApi()">tip dao</button>
+    </div>
+
+
+    <script>
+
+        const jockesApi = async () => {
+            const res =await fetch("https://v2.jokeapi.dev/joke/Programming?type=single")
+            const data = await res.json()
+            const jockes = data.joke;
+            displayData(jockes)
+            
+        }
+
+        const displayData = (joke) =>{
+            const para = document.getElementById("para");
+           
+            para.innerHTML= joke;
+            console.log(joke)
+        }
+
+
+  
+
+    </script>
+</body>
+
+</html>

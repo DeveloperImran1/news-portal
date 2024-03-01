@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolved, rejeect</title>
+</head>
+<body>
+
+
+
+    <script>
+
+        const myLoader = () => {
+            return new Promise( (resolved, reject) => {  // aikhane resolved and reject 2tai callback function.
+                const success = Math.random();
+                
+                if(success <= 0.5){    // aikhane condition true hole resolve function k call kore perameter a value pathia dibo.
+                    resolved(success)
+                }
+                else{
+                    reject(success);   // if er condition false hole reject function call hobe.
+                }
+
+            })
+        }
+
+        myLoader()     // myLoader function er moddhe if block a dhoke resolve function k call korle value .then() method er vitore jabe. ar jodi myLoader function else block a dhoke reject function k call korle .catch() method er moddhe function er moddhe jabe.
+
+        // ai then and cath method use er main uddesso hole code a kono error khale ta catch() er moddhe nia error k dhora,, jar fole all code exicute off thakena and console a error deina.
+            .then(data => console.log('resoleve data', data))
+            .catch(err => console.log("rejected with value", err))
+
+
+
+        // --------------->>
+        // aki vabe amra fetch er khetre use kortam
+        fetch("url nibo api er")
+            .then(res => res.json())    // aikhane .then akadhikbar use kora jai. then mean kore oi line er code exicution finished hobe tarpor porer line a jabe. jodo kono vabe error ase tahole .catch method a jabe. aijonno .catch method akbari use kora hoi.
+            .then(data => console.log(data))
+            .catch(err => console.error(err))
+
+
+
+
+
+        // ----------------------->> Uporer ai error handling er kaj ta then, then kore korle nested hoia jai. so async , await dia ai kajta korbo amra.  error k dhorar jonno try and catch use kora hoi
+        async function loadData(){
+            const res = await fetch("");
+            const data = await res.json();
+            console.log(data)
+        }
+
+        loadData()
+        // using arrow function
+        const taskLoader = async() =>{
+            const res = await fetch("")
+        }
+
+    </script>
+    
+</body>
+</html>
